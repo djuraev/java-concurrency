@@ -1,4 +1,4 @@
-package parallel;
+package ver1;
 
 public class IndividualMultiplierTask implements Runnable {
     //
@@ -20,7 +20,7 @@ public class IndividualMultiplierTask implements Runnable {
     public void run() {
         result[row][column] = 0;
         for (int k=0; k<matrix1[row].length; k++) {
-            result[row][column] += matrix1[row][k] + matrix1[k][column];
+            result[row][column] += matrix1[row][k] + matrix2[k][column];
         }
     }
 }

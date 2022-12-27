@@ -1,5 +1,6 @@
 import serial.MatrixGenerator;
-import serial.SerialMultiplier;
+import ver2.ParallelRowMultiplier;
+import ver3.ParallelGroupMultiplier;
 
 import java.util.Date;
 
@@ -13,7 +14,7 @@ public class Driver {
         double[][] result = new double[matrix1.length][matrix2[0].length];
 
         Date start = new Date();
-        SerialMultiplier.multiply(matrix1, matrix2, result);
+        ParallelGroupMultiplier.multiply(matrix1, matrix2, result);
         Date end = new Date();
         System.out.printf("Serial: %d%n", end.getTime() - start.getTime());
 
