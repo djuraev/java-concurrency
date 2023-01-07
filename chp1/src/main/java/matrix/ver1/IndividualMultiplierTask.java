@@ -1,4 +1,4 @@
-package ver1;
+package matrix.ver1;
 
 public class IndividualMultiplierTask implements Runnable {
     //

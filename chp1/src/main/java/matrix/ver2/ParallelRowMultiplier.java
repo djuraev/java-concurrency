@@ -1,28 +1,26 @@
-package ver3;
+package matrix.ver2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParallelGroupMultiplier {
+public class ParallelRowMultiplier {
     //
     public static void multiply(double[][] matrix1, double[][] matrix2, double[][] result) {
         //
         List<Thread> threads = new ArrayList<>();
         int rows1 = matrix1.length;
-        int numberOfThreads = Runtime.getRuntime().availableProcessors();
-        int startIndex, endIndex, step;
-        step = rows1 / numberOfThreads;
-        startIndex = 0;
-        endIndex = step;
-
-        for (int i = 0; i < numberOfThreads; i++) {
-            GroupMultiplierTask task = new GroupMultiplierTask(result, matrix1, matrix2, startIndex, endIndex);
+        for (int i = 0; i < rows1; i++) {
+            RowMultiplierTask task = new RowMultiplierTask(result, matrix1, matrix2, i);
             Thread thread = new Thread(task);
             thread.start();
             threads.add(thread);
-            startIndex = endIndex;
-            endIndex = i == numberOfThreads - 2 ? rows1 : endIndex + step;
+
+            if (threads.size() % 15 == 0) {
+                waitForThreads(threads);
+            }
         }
+    }
+    private static void waitForThreads(List<Thread> threads) {
         for (Thread thread : threads) {
             try {
                 thread.join();
@@ -30,5 +28,6 @@ public class ParallelGroupMultiplier {
                 e.printStackTrace();
             }
         }
+        threads.clear();
     }
 }

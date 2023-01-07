@@ -1,4 +1,4 @@
-package ver2;
+package matrix.ver2;
 
 public class RowMultiplierTask implements Runnable {
     //

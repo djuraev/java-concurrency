@@ -1,4 +1,4 @@
-package serial;
+package matrix.serial;
 
 public class SerialMultiplier {
     //

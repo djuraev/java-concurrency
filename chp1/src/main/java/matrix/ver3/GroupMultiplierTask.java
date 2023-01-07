@@ -1,4 +1,4 @@
-package ver3;
+package matrix.ver3;
 
 public class GroupMultiplierTask implements Runnable {
     //

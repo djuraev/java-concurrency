@@ -1,6 +1,5 @@
-import serial.MatrixGenerator;
-import ver2.ParallelRowMultiplier;
-import ver3.ParallelGroupMultiplier;
+import matrix.serial.MatrixGenerator;
+import matrix.ver3.ParallelGroupMultiplier;
 
 import java.util.Date;
 

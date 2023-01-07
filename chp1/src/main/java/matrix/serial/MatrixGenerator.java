@@ -1,4 +1,4 @@
-package serial;
+package matrix.serial;
 
 import java.util.Random;
 
